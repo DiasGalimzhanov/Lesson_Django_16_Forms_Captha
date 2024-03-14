@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="search">
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+</div>
+<div class="list">
+  <div>
+    <ul>
+      {% for figure in figures %}
+      <li><p>{{ figure.name }}</p></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <ul>
+      {% for lego in legos %}
+      <li><p>{{ lego.name }}</p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
